@@ -1,5 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Saisei", "Midnight")
+--Autofarms
 local Tab = Window:NewTab("Farm")
 local Section = Tab:NewSection("Farm")
 Section:NewToggle("Auto Wood", "Grabs wood lol", function(state)
@@ -24,3 +25,65 @@ while wait() and getgenv().Grabwood do
             end
         end
     end)
+
+
+Section:NewToggle("Auto Wood v2 cause I am dumb", "Can't figure out how to make it grab all the wood in the folder even with descendants :Sob:" , function(state)
+    if state then
+        getgenv().Grabwoodv2 = true
+        while wait() and getgenv().Grabwoodv2 do
+            for i, v in pairs(game:GetService("Workspace").Interactables:GetChildren()) do
+                if v.Name == "Wood" and v:FindFirstChild("ClickDetector") then
+                    fireclickdetector(v.ClickDetector)
+                    end
+                end
+            end
+            else
+                getgenv().Grabwoodv2 = false
+                while wait() and getgenv().Grabwoodv2 do
+                    for i, v in pairs(game:GetService("Workspace").Interactables:GetChildren()) do
+                        if v.Name == "Wood" and v:FindFirstChild("ClickDetector") then
+                            fireclickdetector(v.ClickDetector)
+                            end
+                        end
+                    end
+                end
+            end)
+--Teleports
+            local Tab = Window:NewTab("Teleports")
+            local Section = Tab:NewSection("Teleports")
+            Section:NewButton("Dock", "Teleports you the docks", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(32.996925354003906, 49.10441589355469, -411.15618896484375)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
+            Section:NewButton("Normal Blacksmith", "Teleports you the Blacksmith", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(-109.93721771240234, 75.49998474121094, -200.42575073242188)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
+            Section:NewButton("The Lookout Tower", "Teleports you the The Lookout Tower", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(-54.75381851196289, 131.36416625976562, 121.84126281738281)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
+            Section:NewButton("The Highlands", "Teleports you the The Highlands", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(-116.46361541748047, 410.104736328125, 585.0670776367188)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
+            Section:NewButton("The Crate Giver", "Teleports you the The Crate Giver", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(-17.946819305419922, 357.1048583984375, 924.4501342773438)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
+            Section:NewButton("The Abyss", "Teleports you the The Abyss", function()
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local location = CFrame.new(-16.981821060180664, -664.1237182617188, 33.20730972290039)
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                pl.CFrame = location
+            end)
